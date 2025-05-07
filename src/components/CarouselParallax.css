@@ -1,0 +1,138 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  margin: 0;
+  top: 2rem;
+}
+
+.carousel-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.parallax-wrapper {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* images */
+.carousel-image {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  clip-path: inset(0 0 0 0);
+  transform: scale(1);
+}
+.carousel-image.previous { z-index: 0; }
+.carousel-image.current  { z-index: 1; }
+
+/* dark overlay */
+.dark-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 2;
+  pointer-events: none;           /* <- allow clicks to pass through */
+}
+
+/* overlay text centrally aligned */
+.slide-overlay {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 3;
+  padding: 0 1rem;
+  pointer-events: none;           /* <- allow clicks to pass through */
+}
+
+.slide-title {
+  font-family: "avenir-next-lt-pro", sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 4.2rem;
+  margin-bottom: 2rem;
+}
+
+
+.slide-subtitle {
+  font-family: "avenir-next-lt-pro", sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+/* CTA button */
+.slide-cta {
+  display: inline-block;
+  padding: 0.4rem 1.5rem;
+  background: rgba(255,255,255,0.8);
+  color: #000;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  z-index: 4;
+  pointer-events: auto;           /* <- make the CTA clickable */
+}
+.slide-cta:hover {
+  background: #fff;
+  color: #333;
+}
+
+/* wipe + zoom keyframes */
+@keyframes wipeNextZoom {
+  from { clip-path: inset(0 0 0 100%); transform: scale(1.2); }
+  to   { clip-path: inset(0 0 0 0);   transform: scale(1);    }
+}
+@keyframes wipePrevZoom {
+  from { clip-path: inset(0 100% 0 0); transform: scale(1.2); }
+  to   { clip-path: inset(0 0 0 0);     transform: scale(1);    }
+}
+.carousel-slide.wipe-next .carousel-image.current {
+  animation: wipeNextZoom 0.8s ease-out forwards;
+}
+.carousel-slide.wipe-prev .carousel-image.current {
+  animation: wipePrevZoom 0.8s ease-out forwards;
+}
+
+/* nav buttons */
+.carousel-button {
+  position: absolute; top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none; border-radius: 50%;
+  padding: 0.5rem; cursor: pointer;
+  z-index: 5; display: flex;
+  align-items: center; justify-content: center;
+}
+.carousel-button.prev { left: 1rem; }
+.carousel-button.next { right: 1rem; }
+
+/* indicators */
+.carousel-indicators {
+  position: absolute; bottom: 1rem;
+  left: 50%; transform: translateX(-50%);
+  display: flex; gap: 0.5rem; z-index: 5;
+}
+.carousel-button:hover {
+  background: rgba(255,255,255,0.9);
+}
+.indicator {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.indicator.active {
+  background: rgba(255,255,255,0.9);
+}

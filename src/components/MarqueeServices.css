@@ -1,0 +1,55 @@
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.marquee__inner {
+  display: inline-flex;
+}
+
+/* responsive font-size and spacing */
+.marquee__item {
+  display: inline-block;
+  font-family: benton-modern-display-extra, serif;
+  letter-spacing: 0.02em;
+  font-weight: 800;
+  margin-top: 1.2rem;
+
+  /* fluid font-size: min 3rem, ideal 10vw, max 7rem */
+  font-size: clamp(4rem, 10vw, 7rem);
+
+  /* fluid gap: min 1rem, ideal 2vw, max 2rem */
+  margin-right: clamp(2rem, 2vw, 3rem);
+
+  color: #000;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+/* Hover: gradient fill + outline fallback */
+.marquee__item:hover {
+  background: linear-gradient(90deg, #991eee, #0044ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* -webkit-text-stroke: 1px #6b21a8; */
+  outline: none;
+}
+
+/* Fallback media-queries for very small screens */
+@media (max-width: 600px) {
+  .marquee__item {
+    /* cap font-size a bit smaller */
+    font-size: clamp(3rem, 12vw, 6rem);
+    margin-right: 1rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .marquee__item {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    margin-right: 0.75rem;
+  }
+}
