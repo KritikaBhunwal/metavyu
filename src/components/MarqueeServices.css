@@ -17,10 +17,10 @@
   margin-top: 1.2rem;
 
   /* fluid font-size: min 3rem, ideal 10vw, max 7rem */
-  font-size: clamp(4rem, 10vw, 7rem);
+  font-size: clamp(2rem, 10vw, 3rem);
 
   /* fluid gap: min 1rem, ideal 2vw, max 2rem */
-  margin-right: clamp(2rem, 2vw, 3rem);
+  margin-right: clamp(2rem, 2vw, 4rem);
 
   color: #000;
   transition: color 0.3s ease;

@@ -1,10 +1,10 @@
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   overflow: hidden;
   margin: 0;
-  top: 2rem;
+  /* top: 2rem; */
 }
 
 .carousel-slide {
@@ -57,10 +57,10 @@
 .slide-title {
   font-family: "avenir-next-lt-pro", sans-serif;
   font-weight: 900;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   line-height: 4.2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 

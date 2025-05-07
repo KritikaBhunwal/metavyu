@@ -26,19 +26,16 @@ export default function MarqueeServices() {
           • ARCHITECTURE
         </span>
         <span className="marquee__item">
-          • INDUSTRIAL DESIGN
+          • INTERIOR DECOR
         </span>
         <span className="marquee__item">
-          • INTERIOR DESIGN AND DECORATION
+          • LANDSCAPE DESIGN
         </span>
         <span className="marquee__item">
-          • ARCHITECTURE
+          • URBAN ARCHITECTURE
         </span>
         <span className="marquee__item">
-          • INDUSTRIAL DESIGN
-        </span>
-        <span className="marquee__item">
-          • INTERIOR DESIGN AND DECORATION
+          • MODERN HOMES
         </span>
       </div>
     </div>
