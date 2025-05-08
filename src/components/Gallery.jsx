@@ -32,22 +32,18 @@ export default function Gallery() {
   const [modalIdx, setModalIdx] = useState(null);
   const previewRef = useRef();
 
-  // Smooth parallax tied to preview container's position
+  // parallax‐on‐scroll for preview
   useEffect(() => {
     let ticking = false;
-    const maxTranslate = 30; // px
-    
+    const maxTranslate = 30;
     const handleScroll = () => {
       if (!previewRef.current) return;
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const rect = previewRef.current.getBoundingClientRect();
           const vh = window.innerHeight;
-          // percent from bottom (0) to top (-rect.height)
           const pct = (vh - rect.top) / (vh + rect.height);
-          // clamp between 0 and 1
           const clamped = Math.min(Math.max(pct, 0), 1);
-          // map to [-maxTranslate, +maxTranslate]
           const translate = (clamped * 2 - 1) * maxTranslate;
           previewRef.current
             .querySelectorAll('.parallax-wrapper')
@@ -59,7 +55,6 @@ export default function Gallery() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // run once to initialize
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -73,12 +68,22 @@ export default function Gallery() {
     setCurrent(nextIdx);
     setNextIdx(null);
   };
-  const goNext = () =>
-    slideTo((current + 1) % SLIDES.length, 'next');
+  const goNext = () => slideTo((current + 1) % SLIDES.length, 'next');
   const goPrev = () =>
     slideTo((current - 1 + SLIDES.length) % SLIDES.length, 'prev');
+
   const openModal = idx => setModalIdx(idx);
   const closeModal = () => setModalIdx(null);
+
+  // NEW: modal navigation
+  const goNextModal = e => {
+    e.stopPropagation();
+    setModalIdx((modalIdx + 1) % SLIDES.length);
+  };
+  const goPrevModal = e => {
+    e.stopPropagation();
+    setModalIdx((modalIdx - 1 + SLIDES.length) % SLIDES.length);
+  };
 
   const bottom = nextIdx !== null ? current : null;
   const top    = nextIdx !== null ? nextIdx  : current;
@@ -144,14 +149,34 @@ export default function Gallery() {
 
       {modalIdx !== null && (
         <div className="modal" onClick={closeModal}>
+          {/* Prev in modal */}
+          <button
+            className="modal-button prev"
+            onClick={goPrevModal}
+            aria-label="Previous"
+          >
+            <FaChevronLeft />
+          </button>
+
           <img
             src={SLIDES[modalIdx].src}
-            alt=""
+            alt={SLIDES[modalIdx].title}
             className="modal-image"
           />
+
+          {/* Next in modal */}
+          <button
+            className="modal-button next"
+            onClick={goNextModal}
+            aria-label="Next"
+          >
+            <FaChevronRight />
+          </button>
+
+          {/* Close */}
           <button
             className="modal-close"
-            onClick={closeModal}
+            onClick={e => { e.stopPropagation(); closeModal(); }}
             aria-label="Close"
           >
             ×

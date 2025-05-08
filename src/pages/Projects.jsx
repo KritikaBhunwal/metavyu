@@ -1,17 +1,19 @@
-// src/pages/BrandStory.jsx
+// src/pages/Home.jsx
 import React from 'react';
 import Navbar from '../components/Navbar';
+import Gallery from '../components/Gallery';
 import Footer from '../components/Footer';
 
-export default function BrandStory() {
+export default function Home() {
   return (
     <>
-      <Navbar />
       <main>
-        <h1>Projects Display</h1>
-        <p>Placeholder for all your projects.</p>
+        <Navbar />
+        <Gallery />
+        <h1>Project Page</h1>
+        <p>This is the home page placeholder.</p>
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }

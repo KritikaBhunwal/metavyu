@@ -1,0 +1,184 @@
+/* src/components/ArchitectIntroGrid.css */
+
+/* 2×2 grid container */
+.architect-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  padding: 2rem;
+  background-color: #0001;
+  bottom: 2rem;
+}
+
+/* base block */
+.intro-block {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  gap: 1.5rem;
+}
+
+/* layout variants */
+/*   'left'  → text left, image right  */
+/*   'right' → image left, text right  */
+.layout-left  { flex-direction: row-reverse; }
+.layout-right { flex-direction: row;       }
+
+/* image style + entry animation setup */
+.intro-image {
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius:    0;
+  border-top-right-radius:  50%;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 50%;
+  /* start invisible */
+  opacity: 0;
+  transition: opacity 2s ease-out;
+}
+
+/* when scrolled into view… */
+.intro-block.in-view .intro-image {
+  opacity: 1;
+}
+
+/* text style + entry-animation setup */
+.intro-text {
+  max-width: 400px;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+/* slide-in offset */
+.layout-left  .intro-text { transform: translateX(-30px); }
+.layout-right .intro-text { transform: translateX(30px); }
+
+/* when scrolled into view… */
+.intro-block.in-view .intro-image {
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+}
+.intro-block.in-view .intro-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* typography */
+.intro-text h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+.intro-text p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* >>> flipped corners for specific blocks <<< */
+.architect-grid .intro-block:nth-child(2) .intro-image,
+.architect-grid .intro-block:nth-child(3) .intro-image {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 0;
+}
+
+/* ─── Right-align text & icons in layout-right blocks ─── */
+.intro-block.layout-right .intro-text {
+  text-align: right;
+}
+
+.intro-block.layout-right .social-icons {
+  justify-content: flex-end;
+}
+
+/* ─── Responsive: single-column on small screens ─── */
+@media (max-width: 768px) {
+  .architect-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 1.5rem;
+  }
+
+  .intro-block {
+    flex-direction: column !important; /* stack image above/below text */
+    text-align: center;                /* center text for both layouts */
+    gap: 1rem;
+  }
+
+  /* ensure image and text fill the width nicely */
+  .intro-image {
+    width: 100%;
+    max-width: 300px;  /* optional cap */
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .intro-text {
+    max-width: 100%;
+    transform: none !important;
+  }
+
+  /* center social icons under text */
+  .social-icons {
+    justify-content: center !important;
+  }
+}
+
+/* ─── Mobile & small tablets (≤768px): alternating side-by-side ─── */
+@media (max-width: 768px) {
+  /* keep one-column grid but each block becomes a row */
+  .architect-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 1.5rem;
+  }
+
+  .intro-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* default: image on right, text on left */
+    flex-direction: row-reverse !important;
+  }
+
+  /* even-numbered blocks: image on left, text on right */
+  .architect-grid .intro-block:nth-child(even) {
+    flex-direction: row !important;
+  }
+
+  /* text alignment */
+  .architect-grid .intro-block .intro-text {
+    max-width: 50%;
+    text-align: left;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .architect-grid .intro-block:nth-child(even) .intro-text {
+    text-align: right;
+  }
+
+  /* image sizing */
+  .architect-grid .intro-block .intro-image {
+    width: 50%;
+    max-width: 200px;
+    height: auto;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  /* social-icons placement */
+  .architect-grid .intro-block .social-icons {
+    display: flex;
+    justify-content: flex-start !important;
+    margin-top: 0.5rem;
+  }
+  .architect-grid .intro-block:nth-child(even) .social-icons {
+    justify-content: flex-end !important;
+  }
+
+  .architect-grid .intro-block .intro-image {
+    /* override any per-corner settings */
+    border-radius: 1rem !important;
+  }
+}
+
+

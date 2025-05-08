@@ -1,103 +1,138 @@
 /* src/components/Gallery.css */
 
 .gallery-container {
-    width: 100%;
-  }
-  
-  /* Preview area */
-  .gallery-preview {
-    position: relative;
-    width: 100%;
-    height: 90vh;
-    overflow: hidden;
-  }
-  .parallax-wrapper {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    overflow: hidden;
-  }
-  .gallery-image {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    clip-path: inset(0 0 0 0);
-    transform: scale(1);
-  }
-  .gallery-image.previous { z-index: 0; }
-  .gallery-image.current  { z-index: 1; }
-  
-  /* Wipe + zoom animations */
-  @keyframes wipeNextZoom {
-    from { clip-path: inset(0 0 0 100%); transform: scale(1.2); }
-    to   { clip-path: inset(0 0 0 0);   transform: scale(1);    }
-  }
-  @keyframes wipePrevZoom {
-    from { clip-path: inset(0 100% 0 0); transform: scale(1.2); }
-    to   { clip-path: inset(0 0 0 0);     transform: scale(1);    }
-  }
-  .gallery-preview.wipe-next .gallery-image.current {
-    animation: wipeNextZoom 0.8s ease-out forwards;
-  }
-  .gallery-preview.wipe-prev .gallery-image.current {
-    animation: wipePrevZoom 0.8s ease-out forwards;
-  }
-  
-  /* Nav buttons */
-  .gallery-button {
-    position: absolute;
-    top: 50%; transform: translateY(-50%);
-    background: rgba(255,255,255,0.8);
-    border: none; border-radius: 50%;
-    padding: 0.5rem; cursor: pointer;
-    z-index: 2; font-size: 1.25rem;
-  }
-  .gallery-button.prev { left: 1rem; }
-  .gallery-button.next { right: 1rem; }
-  
-  /* Thumbnails & hover titles */
-  .thumbnails {
-    display: flex; flex-wrap: wrap;
-    justify-content: center; gap: 1rem;
-    margin: 1rem 0;
-  }
-  .thumbnail {
-    position: relative;
-    width: 100px; height: 70px;
-    cursor: pointer; overflow: hidden;
-  }
-  .thumbnail-img {
-    width: 100%; height: 100%; object-fit: cover;
-  }
-  .thumb-title {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff; font-size: 0.75rem;
-    text-align: center; padding: 0.25rem 0;
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .thumbnail:hover .thumb-title {
-    opacity: 1;
-  }
-  
-  /* Fullscreen modal */
-  .modal {
-    position: fixed; top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: rgba(0,0,0,0.85);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 999;
-  }
-  .modal-image {
-    max-width: 90%; max-height: 90%; object-fit: contain;
-  }
-  .modal-close {
-    position: absolute; top: 1rem; right: 1rem;
-    background: rgba(255,255,255,0.8);
-    border: none; border-radius: 50%;
-    width: 2rem; height: 2rem;
-    font-size: 1.5rem; cursor: pointer;
-  }
-  
+  width: 100%;
+}
+
+/* Preview area */
+.gallery-preview {
+  top: -0.1rem;
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+}
+.parallax-wrapper {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+}
+.gallery-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  clip-path: inset(0 0 0 0);
+  transform: scale(1);
+}
+.gallery-image.previous { z-index: 0; }
+.gallery-image.current  { z-index: 1; }
+
+/* Wipe + zoom animations */
+@keyframes wipeNextZoom {
+  from { clip-path: inset(0 0 0 100%); transform: scale(1.2); }
+  to   { clip-path: inset(0 0 0 0);   transform: scale(1);    }
+}
+@keyframes wipePrevZoom {
+  from { clip-path: inset(0 100% 0 0); transform: scale(1.2); }
+  to   { clip-path: inset(0 0 0 0);     transform: scale(1);    }
+}
+.gallery-preview.wipe-next .gallery-image.current {
+  animation: wipeNextZoom 0.8s ease-out forwards;
+}
+.gallery-preview.wipe-prev .gallery-image.current {
+  animation: wipePrevZoom 0.8s ease-out forwards;
+}
+
+/* Nav buttons (preview) – match CarouselParallax */
+.gallery-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+.gallery-button.prev { left: 1rem; }
+.gallery-button.next { right: 1rem; }
+.gallery-button:hover {
+  background: rgba(255,255,255,0.9);
+}
+
+/* Thumbnails & hover titles */
+.thumbnails {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 1rem;
+  margin: 1rem 0;
+}
+.thumbnail {
+  position: relative;
+  width: 120px; height: 80px;
+  cursor: pointer; overflow: hidden;
+}
+.thumbnail-img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.thumb-title {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff; font-size: 0.75rem;
+  text-align: center; padding: 0.25rem 0;
+  opacity: 0; transition: opacity 0.3s;
+}
+.thumbnail:hover .thumb-title {
+  opacity: 1;
+}
+
+/* Fullscreen modal */
+.modal {
+  position: fixed; top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 999;
+}
+.modal-image {
+  max-width: 90%; max-height: 90%; object-fit: contain;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute; top: 4rem; right: 1rem;
+  background: rgba(255,255,255,0.8);
+  border: none; border-radius: 50%;
+  width: 1.6rem; height: 1.6rem;
+  font-size: 1.2rem; cursor: pointer;
+  z-index: 1000;
+}
+
+/* NEW: Modal nav buttons – same style as carousel */
+.modal-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+.modal-button.prev { left: 1rem; }
+.modal-button.next { right: 1rem; }
+.modal-button:hover {
+  background: rgba(255,255,255,0.9);
+}

@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background: #000; */
+    background: linear-gradient(to bottom, #0007 30%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
     padding: 1rem 2rem;
     z-index: 1000;
   }
@@ -32,7 +32,9 @@
   }
   .navbar__links a:hover,
   .navbar__links span:hover {
-    background: linear-gradient(45deg, #991eee, #0044ee);
+    /* background: linear-gradient(45deg, #991eee, #0044ee); */
+    background: linear-gradient(45deg, #ffe177, #cd9848);
+    color: #000;
   }
   
   /* Submenu */

@@ -37,6 +37,36 @@ export default function MarqueeServices() {
         <span className="marquee__item">
           • MODERN HOMES
         </span>
+        <span className="marquee__item">
+          • ARCHITECTURE
+        </span>
+        <span className="marquee__item">
+          • INTERIOR DECOR
+        </span>
+        <span className="marquee__item">
+          • LANDSCAPE DESIGN
+        </span>
+        <span className="marquee__item">
+          • URBAN ARCHITECTURE
+        </span>
+        <span className="marquee__item">
+          • MODERN HOMES
+        </span>
+        <span className="marquee__item">
+          • ARCHITECTURE
+        </span>
+        <span className="marquee__item">
+          • INTERIOR DECOR
+        </span>
+        <span className="marquee__item">
+          • LANDSCAPE DESIGN
+        </span>
+        <span className="marquee__item">
+          • URBAN ARCHITECTURE
+        </span>
+        <span className="marquee__item">
+          • MODERN HOMES
+        </span>
       </div>
     </div>
   );

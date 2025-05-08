@@ -2,6 +2,7 @@
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
+  padding: 2rem 0;
 }
 
 .marquee__inner {
@@ -14,7 +15,7 @@
   font-family: benton-modern-display-extra, serif;
   letter-spacing: 0.02em;
   font-weight: 800;
-  margin-top: 1.2rem;
+  /* margin-top: 1.2rem; */
 
   /* fluid font-size: min 3rem, ideal 10vw, max 7rem */
   font-size: clamp(2rem, 10vw, 3rem);
