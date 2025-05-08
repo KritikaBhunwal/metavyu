@@ -65,8 +65,8 @@ export default function ArchitectIntroGrid() {
       introText:
         'Vyusti blends form and function in every design—creating spaces that inspire and endure.',
       layout: 'left',
-      linkedin: '#',
-      instagram: '#',
+      linkedin: 'https://www.linkedin.com/in/ar-vyusti-s-9a15921aa/',
+      instagram: 'https://www.instagram.com/metavyu_designs/',
     },
     {
       src: img2,
@@ -74,8 +74,8 @@ export default function ArchitectIntroGrid() {
       introText:
         'Aria’s passion for sustainable materials drives her to innovate green architecture solutions.',
       layout: 'right',
-      linkedin: '#',
-      instagram: '#',
+      linkedin: 'https://www.linkedin.com/in/ar-vyusti-s-9a15921aa/',
+      instagram: 'https://www.instagram.com/metavyu_designs/',
     },
     {
       src: img3,
@@ -83,8 +83,8 @@ export default function ArchitectIntroGrid() {
       introText:
         'Rohan specializes in urban revitalization, transforming old districts into thriving communities.',
       layout: 'left',
-      linkedin: '#',
-      instagram: '#',
+      linkedin: 'https://www.linkedin.com/in/ar-vyusti-s-9a15921aa/',
+      instagram: 'https://www.instagram.com/metavyu_designs/',
     },
     {
       src: img4,
@@ -92,8 +92,8 @@ export default function ArchitectIntroGrid() {
       introText:
         'Lina’s sleek minimalism redefines residential landscapes with light, shadow, and texture.',
       layout: 'right',
-      linkedin: '#',
-      instagram: '#',
+      linkedin: 'https://www.linkedin.com/in/ar-vyusti-s-9a15921aa/',
+      instagram: 'https://www.instagram.com/metavyu_designs/',
     },
   ];
 

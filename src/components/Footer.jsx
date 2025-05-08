@@ -18,7 +18,7 @@ export default function Footer() {
 
         <div className="footer__social-icons">
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/ar-vyusti-s-9a15921aa/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -26,7 +26,7 @@ export default function Footer() {
             <FaLinkedin />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/metavyu_designs/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"

@@ -13,37 +13,37 @@ import slide6 from '../assets/slide6.jpg';
 const SLIDES = [
   {
     src: slide1,
-    link: 'https://www.google.com',
+    link: 'https://www.instagram.com/metavyu_designs/',
     title: 'Innovative Architecture',
     subtitle: 'Blending form and function seamlessly',
   },
   {
     src: slide2,
-    link: 'https://mail.google.com',
+    link: 'https://www.instagram.com/metavyu_designs/',
     title: 'Urban Design Concepts',
     subtitle: 'Redefining city landscapes for tomorrow',
   },
   {
     src: slide3,
-    link: 'https://kritikabhunwal.com',
+    link: 'https://www.instagram.com/metavyu_designs/',
     title: 'Sustainable Structures',
     subtitle: 'Eco-friendly materials and designs',
   },
   {
     src: slide4,
-    link: 'https://www.instagram.com',
+    link: 'https://www.instagram.com/metavyu_designs/',
     title: 'Creative Interiors',
     subtitle: 'Spaces that tell your story',
   },
   {
     src: slide5,
-    link: 'https://www.facebook.com',
+    link: 'https://www.instagram.com/metavyu_designs/',
     title: 'Modern Landmarks',
     subtitle: 'Iconic designs shaping skylines',
   },
   {
     src: slide6,
-    link: 'https://www.behance.net',
+    link: 'https://www.instagram.com/metavyu_designs/',
     title: 'Digital Architecture',
     subtitle: 'Virtual spaces and interactive designs',
   },
