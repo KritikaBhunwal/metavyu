@@ -1,115 +1,101 @@
 /* src/components/Navbar.css */
 .navbar {
-    position: fixed;
-    width: 100%;
-    /* top: 1rem; */
-    /* border-radius: 2rem; */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(to bottom, #0007 30%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
-    padding: 1rem 2rem;
-    z-index: 1000;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #0007 30%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+/* Logo */
+.navbar__logo img {
+  height: 30px;
+  position: relative;
+  z-index: 1100;
+}
+
+/* Desktop links */
+.navbar__links {
+  display: flex;
+  gap: 1.5rem;
+}
+.navbar__links a,
+.navbar__links span {
+  color: #fff;
+  padding: 0.4rem 1.2rem;
+  border-radius: 2rem;
+  transition: background 0.3s ease;
+}
+.navbar__links a:hover,
+.navbar__links span:hover {
+  background: linear-gradient(45deg, #ffe177, #cd9848);
+  color: #000;
+}
+
+/* Hamburger toggle (hidden on desktop) */
+.navbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1100; /* above the overlay */
+}
+
+/* MOBILE LAYOUT */
+@media (max-width: 768px) {
+  .navbar__toggle {
+    display: block;
   }
-  
-  /* Logo */
-  .navbar__logo img {
-    height: 30px;
-  }
-  
-  /* Desktop links */
+
+  /* Fullscreen overlay menu */
   .navbar__links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1050;
+  }
+  .navbar__links.active {
     display: flex;
-    gap: 1.5rem;
+  }
+
+  /* Menu items */
+  .navbar__links li {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem 0;
   }
   .navbar__links a,
   .navbar__links span {
-    color: #fff;
-    cursor: pointer;
-    padding: 0.4rem 1.2rem;
-    border-radius: 2rem;
-    transition: background 0.3s ease;
+    display: inline-block;
+    width: auto;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
   }
-  .navbar__links a:hover,
-  .navbar__links span:hover {
-    /* background: linear-gradient(45deg, #991eee, #0044ee); */
-    background: linear-gradient(45deg, #ffe177, #cd9848);
-    color: #000;
-  }
-  
-  /* Submenu */
-  .has-submenu {
-    position: relative;
-  }
-  .submenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #111;
-    display: none;
-    padding: 0.5rem 0;
-    z-index: 1000;
-  }
-  .has-submenu:hover .submenu {
+
+  /* Submenu always visible in mobile */
+  .has-submenu .submenu {
+    position: static;
     display: block;
+    background: #111;
+    width: 100%;
+    margin: 0;
   }
-  .submenu li {
-    padding: 0.5rem 1rem;
+  .has-submenu .submenu li {
+    padding: 0.75rem 2rem;
   }
-  .submenu a {
-    color: #fff;
-  }
-  
-  /* Hamburger toggle (hidden on desktop) */
-  .navbar__toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  /* MOBILE LAYOUT */
-  @media (max-width: 768px) {
-    .navbar__toggle {
-      display: block;
-    }
-    .navbar__links {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: #000;
-      flex-direction: column;
-      align-items: flex-start;
-      display: none;
-      margin: 0;
-      padding: 1rem 0;
-    }
-    .navbar__links.active {
-      display: flex;
-    }
-    .navbar__links li {
-      width: 100%;
-    }
-    .navbar__links a,
-    .navbar__links span {
-      display: block;
-      width: 100%;
-      padding: 1rem 2rem;
-    }
-  
-    /* Always show submenu as part of mobile menu */
-    .has-submenu .submenu {
-      position: static;
-      display: block;
-      background: #111;
-      width: 100%;
-      margin-left: 0;
-    }
-    .has-submenu .submenu li {
-      padding: 0.75rem 2rem;
-    }
-  }
-  
+}

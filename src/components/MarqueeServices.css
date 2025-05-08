@@ -30,7 +30,7 @@
 
 /* Hover: gradient fill + outline fallback */
 .marquee__item:hover {
-  background: linear-gradient(90deg, #991eee, #0044ee);
+  background: linear-gradient(90deg, #ffe177, #cd9848);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   /* -webkit-text-stroke: 1px #6b21a8; */

@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import ArchitectIntroGrid from '../components/ArchitectIntroGrid';
 import Gallery from '../components/Gallery';
 import ContactForm from '../components/ContactForm';
+import ValuesRow from '../components/ValuesRow';
 
 export default function Home() {
   return (
@@ -15,7 +16,6 @@ export default function Home() {
       <main>
         <Navbar />
         <CarouselParallax />
-        <MarqueeServices />
         <ArchitectIntroGrid />
         <h2 style={{ 
           fontFamily: 'benton-modern-display-extra, serif', 
@@ -23,11 +23,25 @@ export default function Home() {
           fontWeight: 700, 
           fontStyle: 'normal', 
           textAlign: 'center',
-          padding: '2rem 0', 
+          padding: '2rem 0',
+          marginTop: '2rem',  
+        }}>
+          OUR VALUES
+        </h2>
+        <ValuesRow />
+        <h2 style={{ 
+          fontFamily: 'benton-modern-display-extra, serif', 
+          fontSize: '2.5rem',
+          fontWeight: 700, 
+          fontStyle: 'normal', 
+          textAlign: 'center',
+          padding: '2rem 0',
+          marginTop: '2rem',  
         }}>
           OUR PROJECTS
         </h2>
         <Gallery />
+        <MarqueeServices />
         <ContactForm />
         <Footer />
       </main>

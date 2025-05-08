@@ -1,0 +1,69 @@
+/* src/components/ValuesRow.css */
+
+.values-row {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  margin: 0rem 0rem 0rem 2rem;
+}
+
+/* start hidden & slide-up */
+.value-item {
+  flex: 1 1 200px;
+  max-width: 200px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* staggered reveal */
+.values-row.in-view .value-item:nth-child(1) { transition-delay: 0s; }
+.values-row.in-view .value-item:nth-child(2) { transition-delay: 0.1s; }
+.values-row.in-view .value-item:nth-child(3) { transition-delay: 0.2s; }
+.values-row.in-view .value-item:nth-child(4) { transition-delay: 0.3s; }
+.values-row.in-view .value-item:nth-child(5) { transition-delay: 0.4s; }
+
+.values-row.in-view .value-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* grey circle & dark icon by default */
+.icon-wrapper {
+  width: 100px;
+  height: 100px;
+  background: #eee;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 3rem;
+  color: #333;            /* icon color */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* hover: black circle, gold icon */
+.icon-wrapper:hover {
+  background: #000;
+  color: #ffe177;         /* solid gold */
+}
+.icon-wrapper svg {
+  fill: currentColor;     /* ensure SVG uses currentColor */
+}
+
+.value-item h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.value-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}

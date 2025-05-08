@@ -98,10 +98,22 @@ export default function ArchitectIntroGrid() {
   ];
 
   return (
-    <div className="architect-grid">
-      {items.map((item, i) => (
-        <ArchitectIntro key={i} {...item} />
-      ))}
-    </div>
+    <>
+      <h2 style={{ 
+        fontFamily: 'benton-modern-display-extra, serif', 
+        fontSize: '2.5rem',
+        fontWeight: 700, 
+        fontStyle: 'normal', 
+        textAlign: 'center',
+        padding: '2rem 0',
+      }}>
+        MEET OUR TEAM
+      </h2>
+      <div className="architect-grid">
+        {items.map((item, i) => (
+          <ArchitectIntro key={i} {...item} />
+        ))}
+      </div>
+    </>
   );
 }
