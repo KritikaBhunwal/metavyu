@@ -39,7 +39,16 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
-      <h2>Contact Us</h2>
+       <h2 style={{ 
+        fontFamily: 'benton-modern-display-extra, serif', 
+        fontSize: '2.5rem',
+        fontWeight: 700, 
+        fontStyle: 'normal', 
+        textAlign: 'center',
+        padding: '2rem 0',
+      }}>
+        CONTACT US
+      </h2>
 
       {submitted ? (
         <p className="success-message">

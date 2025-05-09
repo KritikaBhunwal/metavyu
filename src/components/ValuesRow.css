@@ -1,12 +1,19 @@
 /* src/components/ValuesRow.css */
+.values-container {
+  background: #eee;
+  padding: 2rem 0;
+  margin: 0 auto;
+  /* max-width: 1200px; */
+}
+
 
 .values-row {
   display: flex;
   justify-content: center;
   gap: 5rem;
   flex-wrap: wrap;
-  padding: 2rem 0;
-  margin: 0rem 0rem 0rem 2rem;
+  padding: 2rem;
+  margin: 5rem;
 }
 
 /* start hidden & slide-up */
@@ -35,7 +42,7 @@
 .icon-wrapper {
   width: 100px;
   height: 100px;
-  background: #eee;
+  background: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -66,4 +73,22 @@
   font-size: 0.9rem;
   color: #666;
   line-height: 1.4;
+}
+
+/* ─── Mobile: center the row & items horizontally ─── */
+@media (max-width: 768px) {
+  .values-row {
+    /* remove that left offset and center the flex container */
+    margin: 0 auto;
+    justify-content: center;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .value-item {
+    /* ensure each item is centered */
+    margin: 0 auto;
+    flex: 1 1 auto;
+    max-width: 200px;
+  }
 }

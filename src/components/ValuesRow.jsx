@@ -30,14 +30,28 @@ export default function ValuesRow() {
   ];
 
   return (
-    <div ref={ref} className={`values-row${inView ? ' in-view' : ''}`}>
-      {values.map((v, i) => (
-        <div className="value-item" key={i}>
-          <div className="icon-wrapper">{v.icon}</div>
-          <h3>{v.title}</h3>
-          <p>{v.description}</p>
-        </div>
-      ))}
+    <div className='values-container'>
+      <h2 style={{ 
+        fontFamily: 'benton-modern-display-extra, serif', 
+        fontSize: '2.5rem',
+        fontWeight: 700, 
+        fontStyle: 'normal', 
+        textAlign: 'center',
+        padding: '2rem 0',
+        marginTop: '2rem',  
+        marginBottom: '-5rem',
+      }}>
+        OUR VALUES
+      </h2>
+      <div ref={ref} className={`values-row${inView ? ' in-view' : ''}`}>
+        {values.map((v, i) => (
+          <div className="value-item" key={i}>
+            <div className="icon-wrapper">{v.icon}</div>
+            <h3>{v.title}</h3>
+            <p>{v.description}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

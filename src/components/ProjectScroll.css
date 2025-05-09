@@ -1,0 +1,54 @@
+/* src/components/ProjectScroller.css */
+
+.projects-scroller {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding: 2rem 0;
+    scroll-behavior: smooth;
+  }
+  
+  .project-card {
+    position: relative;       /* make pill absolute within */
+    flex: 0 0 500px;          /* exactly 500px wide */
+    width: 500px;
+    height: 300px;            /* exactly 300px tall */
+    text-align: center;
+  }
+  
+  /* pill inside the image, top-left corner */
+  .project-pill {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    padding: 0.25rem 0.75rem;
+    background: #fff;
+    color: #000;
+    border-radius: 1rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  
+  /* full-size preview */
+  .project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.2rem;
+    display: block;
+  }
+
+  @media (max-width: 500px) {
+    .projects-scroller {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .project-card {
+        width: 90%;
+        max-width: 500px; /* max width for larger screens */
+    }
+  }
+  /* Add a scrollbar for the scroller */
+  

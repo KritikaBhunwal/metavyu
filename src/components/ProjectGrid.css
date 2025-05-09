@@ -1,0 +1,14 @@
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  /* responsive: stack on small screens */
+  @media (max-width: 1024px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

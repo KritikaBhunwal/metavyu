@@ -3,15 +3,15 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Gallery from '../components/Gallery';
 import Footer from '../components/Footer';
+import FilterableProjects from '../components/FilterableProjects';
 
 export default function Home() {
   return (
     <>
       <main>
         <Navbar />
-        <Gallery />
-        <h1>Project Page</h1>
-        <p>This is the home page placeholder.</p>
+        <FilterableProjects />
+        {/* <Gallery /> */}
         <Footer />
       </main>
     </>
