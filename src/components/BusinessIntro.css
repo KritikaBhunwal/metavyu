@@ -1,0 +1,84 @@
+.business-intro {
+  position: relative;
+  background: url('../assets/gallery5.jpeg') center/cover no-repeat;
+  color: #fff;
+  overflow: hidden;
+  /* margin: 2rem 0; Add margin to separate it from other sections */
+  padding: 2rem 1rem; /* Reduce padding to fit better in the layout */
+}
+
+.business-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.business-content {
+  position: relative;
+  max-width: 100%; /* Ensure it doesn't exceed the container width */
+  /* margin: 0 1rem; */
+  text-align: center;
+}
+
+.business-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+    font-family: benton-modern-display-extra, serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.business-content h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.business-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 2rem 6rem;
+}
+
+.business-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  gap: 1rem; /* Reduce gap for better alignment */
+  margin: 4rem 6rem;
+}
+
+.business-category {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.business-category:hover {
+  color: #ffe177;
+}
+
+.business-icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.business-cta {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #ffe177;
+  border-radius: 2rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background 0.3s, color 0.3s;
+  margin-bottom: 4rem;;
+}
+
+.business-cta:hover {
+  background: linear-gradient(45deg, #ffe177, #cd9848);
+  color: #000;
+}

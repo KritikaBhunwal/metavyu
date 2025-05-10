@@ -1,4 +1,3 @@
-// src/components/CarouselParallax.jsx
 import React, { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './CarouselParallax.css';
@@ -11,46 +10,16 @@ import slide5 from '../assets/slide5.jpg';
 import slide6 from '../assets/slide6.jpg';
 
 const SLIDES = [
-  {
-    src: slide1,
-    link: 'https://www.instagram.com/metavyu_designs/',
-    title: 'Innovative Architecture',
-    subtitle: 'Blending form and function seamlessly',
-  },
-  {
-    src: slide2,
-    link: 'https://www.instagram.com/metavyu_designs/',
-    title: 'Urban Design Concepts',
-    subtitle: 'Redefining city landscapes for tomorrow',
-  },
-  {
-    src: slide3,
-    link: 'https://www.instagram.com/metavyu_designs/',
-    title: 'Sustainable Structures',
-    subtitle: 'Eco-friendly materials and designs',
-  },
-  {
-    src: slide4,
-    link: 'https://www.instagram.com/metavyu_designs/',
-    title: 'Creative Interiors',
-    subtitle: 'Spaces that tell your story',
-  },
-  {
-    src: slide5,
-    link: 'https://www.instagram.com/metavyu_designs/',
-    title: 'Modern Landmarks',
-    subtitle: 'Iconic designs shaping skylines',
-  },
-  {
-    src: slide6,
-    link: 'https://www.instagram.com/metavyu_designs/',
-    title: 'Digital Architecture',
-    subtitle: 'Virtual spaces and interactive designs',
-  },
+  { src: slide1, link: 'https://www.instagram.com/metavyu_designs/', title: 'Innovative Architecture', subtitle: 'Blending form and function seamlessly' },
+  { src: slide2, link: 'https://www.instagram.com/metavyu_designs/', title: 'Urban Design Concepts',   subtitle: 'Redefining city landscapes for tomorrow' },
+  { src: slide3, link: 'https://www.instagram.com/metavyu_designs/', title: 'Sustainable Structures', subtitle: 'Eco-friendly materials and designs' },
+  { src: slide4, link: 'https://www.instagram.com/metavyu_designs/', title: 'Creative Interiors',    subtitle: 'Spaces that tell your story' },
+  { src: slide5, link: 'https://www.instagram.com/metavyu_designs/', title: 'Modern Landmarks',      subtitle: 'Iconic designs shaping skylines' },
+  { src: slide6, link: 'https://www.instagram.com/metavyu_designs/', title: 'Digital Architecture',   subtitle: 'Virtual spaces and interactive designs' },
 ];
 
 const AUTO_DELAY = 4000;  // 4s auto-advance
-const ANIM_DURATION = 800; //ms, must match CSS
+const ANIM_DURATION = 800; //ms, match CSS 0.8s
 
 export default function CarouselParallax() {
   const [current, setCurrent] = useState(0);
@@ -72,7 +41,7 @@ export default function CarouselParallax() {
   // auto-advance
   useEffect(() => {
     const id = setInterval(() => {
-      if (nextIdx === null) slideTo((current + 1) % SLIDES.length, 'next');
+      if (nextIdx === null) goNext();
     }, AUTO_DELAY);
     return () => clearInterval(id);
   }, [current, nextIdx]);
@@ -89,15 +58,13 @@ export default function CarouselParallax() {
   };
 
   const goNext = () => slideTo((current + 1) % SLIDES.length, 'next');
-  const goPrev = () =>
-    slideTo((current - 1 + SLIDES.length) % SLIDES.length, 'prev');
+  const goPrev = () => slideTo((current - 1 + SLIDES.length) % SLIDES.length, 'prev');
 
+  // indicator click: direction based on position
   const onIndicatorClick = i => {
     if (i === current || nextIdx !== null) return;
-    const isNext =
-      i === (current + 1) % SLIDES.length ||
-      (current === SLIDES.length - 1 && i === 0);
-    slideTo(i, isNext ? 'next' : 'prev');
+    const direction = i > current ? 'next' : 'prev';
+    slideTo(i, direction);
   };
 
   const bottom = nextIdx !== null ? current : null;
@@ -106,37 +73,23 @@ export default function CarouselParallax() {
 
   return (
     <div className="carousel-container">
-      <div className={`carousel-slide ${slideClass}`}>
+      <div className={`carousel-slide ${slideClass}`} style={{ animationDuration: `${ANIM_DURATION}ms` }} onAnimationEnd={onAnimEnd}>
         {bottom !== null && (
           <div className="parallax-wrapper">
             <a href={SLIDES[bottom].link} target="_blank" rel="noopener noreferrer">
-              <img
-                src={SLIDES[bottom].src}
-                alt=""
-                className="carousel-image previous"
-              />
+              <img src={SLIDES[bottom].src} alt="" className="carousel-image previous" />
             </a>
           </div>
         )}
         <div className="parallax-wrapper">
           <a href={SLIDES[top].link} target="_blank" rel="noopener noreferrer">
-            <img
-              src={SLIDES[top].src}
-              alt=""
-              className="carousel-image current"
-              onAnimationEnd={onAnimEnd}
-            />
+            <img src={SLIDES[top].src} alt="" className="carousel-image current" />
           </a>
           <div className="dark-overlay" />
           <div className="slide-overlay">
             <h2 className="slide-title">{SLIDES[top].title}</h2>
             <p className="slide-subtitle">{SLIDES[top].subtitle}</p>
-            <a
-              href={SLIDES[top].link}
-              className="slide-cta"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={SLIDES[top].link} className="slide-cta" target="_blank" rel="noopener noreferrer">
               Explore
             </a>
           </div>

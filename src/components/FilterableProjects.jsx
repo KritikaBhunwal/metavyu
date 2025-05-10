@@ -34,7 +34,7 @@ export default function FilterableProjects() {
       src: g2,
       title: "Cozy Cottage",
       description: "A serene residential retreat.",
-      categories: ["Residential"],
+      categories: ["Hospitality"],
       link: "/projects/cozy-cottage",
     },
     {
@@ -50,7 +50,7 @@ export default function FilterableProjects() {
       src: g4,
       title: "Office Plaza",
       description: "Contemporary commercial space.",
-      categories: ["Commercial"],
+      categories: ["Residential"],
       link: "/projects/office-plaza",
     },
     {
@@ -90,7 +90,7 @@ export default function FilterableProjects() {
       src: g9,
       title: "Boutique Hotel",
       description: "Charming boutique hospitality.",
-      categories: ["Hospitality"],
+      categories: ["Commercial"],
       link: "/projects/boutique-hotel",
     },
   ];
@@ -136,5 +136,5 @@ export default function FilterableProjects() {
         ))}
       </div>
     </div>
-);
+  );
 }

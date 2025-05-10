@@ -10,6 +10,8 @@ import Gallery from "../components/Gallery";
 import ContactForm from "../components/ContactForm";
 import ValuesRow from "../components/ValuesRow";
 import ProjectGrid from "../components/ProjectGrid";
+import TypewriterQuote from "../components/TypewriterQuote";
+import BusinessIntro from "../components/BusinessIntro";
 
 export default function Home() {
   return (
@@ -17,6 +19,27 @@ export default function Home() {
       <main>
         <Navbar />
         <CarouselParallax />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            backgroundColor: "#000",
+            // gap: "2rem",
+            // padding: "2rem",
+          }}
+        >
+          <div style={{ flex: 1 }}>
+            <TypewriterQuote />
+          </div>
+          <div style={{ flex: 1 }}>
+            <BusinessIntro />
+          </div>
+        </div>
+
+
+        {/* <ValuesRow /> */}
         <ProjectGrid />
         {/* <ArchitectIntroGroup /> */}
         <ValuesRow />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import BrandStory from './pages/BrandStory';
+import Services from './pages/Services';
 import Connect from './pages/Connect';
 import Projects from './pages/Projects';
 import Commercial from './pages/Projects/Commercial';
@@ -16,7 +16,7 @@ export default function App() {
       {/* <Navbar /> */}
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/brand-story" element={<BrandStory />} />
+      <Route path="/services" element={<Services />} />
       <Route path="/connect" element={<Connect />} />
       <Route path="/projects" element={<Projects />} />
       <Route path="/projects/commercial" element={<Commercial />} />

@@ -33,16 +33,8 @@ export default function Navbar() {
 
       <ul className={`navbar__links ${isOpen ? 'active' : ''}`}>
         <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
+        <li><Link to="/services" onClick={() => setIsOpen(false)}>Services</Link></li>
         <li><Link to="/projects" onClick={() => setIsOpen(false)}>Projects</Link></li>
-        {/* <li className="has-submenu">
-          <span>Projects</span>
-          <ul className="submenu">
-            <li><Link to="/projects/commercial" onClick={() => setIsOpen(false)}>Commercial</Link></li>
-            <li><Link to="/projects/residential" onClick={() => setIsOpen(false)}>Residential</Link></li>
-            <li><Link to="/projects/international" onClick={() => setIsOpen(false)}>International</Link></li>
-          </ul>
-        </li> */}
-        <li><Link to="/brand-story" onClick={() => setIsOpen(false)}>Brand Story</Link></li>
         <li><Link to="/connect" onClick={() => setIsOpen(false)}>Connect</Link></li>
       </ul>
     </nav>

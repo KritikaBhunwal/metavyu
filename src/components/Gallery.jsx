@@ -1,4 +1,3 @@
-// src/components/Gallery.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Gallery.css';
@@ -25,6 +24,10 @@ const SLIDES = [
   { src: g9, title: 'Horizon View' },
 ];
 
+// Auto-advance delay & animation duration constants
+const AUTO_DELAY = 4000;    // 4 seconds between slides
+const ANIM_DURATION = 800;  // must match CSS 0.8s duration
+
 export default function Gallery() {
   const [current, setCurrent] = useState(0);
   const [nextIdx, setNextIdx]   = useState(null);
@@ -32,7 +35,7 @@ export default function Gallery() {
   const [modalIdx, setModalIdx] = useState(null);
   const previewRef = useRef();
 
-  // parallax‐on‐scroll for preview
+  // parallax-on-scroll for preview
   useEffect(() => {
     let ticking = false;
     const maxTranslate = 30;
@@ -59,6 +62,14 @@ export default function Gallery() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // auto-advance slideshow
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (nextIdx === null) goNext();
+    }, AUTO_DELAY);
+    return () => clearInterval(id);
+  }, [current, nextIdx]);
+
   const slideTo = (idx, direction) => {
     if (nextIdx !== null || idx === current) return;
     setDir(direction);
@@ -75,7 +86,7 @@ export default function Gallery() {
   const openModal = idx => setModalIdx(idx);
   const closeModal = () => setModalIdx(null);
 
-  // NEW: modal navigation
+  // modal navigation
   const goNextModal = e => {
     e.stopPropagation();
     setModalIdx((modalIdx + 1) % SLIDES.length);
@@ -96,6 +107,7 @@ export default function Gallery() {
           className={`gallery-preview ${slideClass}`}
           ref={previewRef}
           onAnimationEnd={onAnimEnd}
+          style={{ animationDuration: `${ANIM_DURATION}ms` }}
         >
           {bottom !== null && (
             <div className="parallax-wrapper">
@@ -149,7 +161,6 @@ export default function Gallery() {
 
       {modalIdx !== null && (
         <div className="modal" onClick={closeModal}>
-          {/* Prev in modal */}
           <button
             className="modal-button prev"
             onClick={goPrevModal}
@@ -164,7 +175,6 @@ export default function Gallery() {
             className="modal-image"
           />
 
-          {/* Next in modal */}
           <button
             className="modal-button next"
             onClick={goNextModal}
@@ -173,7 +183,6 @@ export default function Gallery() {
             <FaChevronRight />
           </button>
 
-          {/* Close */}
           <button
             className="modal-close"
             onClick={e => { e.stopPropagation(); closeModal(); }}

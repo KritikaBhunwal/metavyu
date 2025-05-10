@@ -1,0 +1,40 @@
+/* src/components/TypewriterQuotes.css */
+
+.typewriter-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 2rem 0rem; */
+  word-wrap: normal;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  text-align: center;
+  padding: 2rem;
+  transition: background 0.3s ease;
+}
+
+.typewriter {
+  font-family: benton-modern-display-extra, serif;
+  font-size: 2rem;
+  font-weight: 100;
+  letter-spacing: 0.05em;
+  font-style: normal;
+  white-space: wrap;
+  overflow: hidden;
+  /* color: linear-gradient(45deg, #ffe177, #cd9848); */
+  color: white;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
