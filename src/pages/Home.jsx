@@ -22,35 +22,31 @@ export default function Home() {
         <div
           style={{
             display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
+            flexDirection: "column",
+            justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#000",
-            // gap: "2rem",
-            // padding: "2rem",
+            padding: "1rem",
           }}
         >
-          <div style={{ flex: 1 }}>
+          <div style={{ width: "100%", marginBottom: "1rem" }}>
             <TypewriterQuote />
           </div>
-          <div style={{ flex: 1 }}>
+          <div style={{ width: "100%" }}>
             <BusinessIntro />
           </div>
         </div>
 
-
-        {/* <ValuesRow /> */}
         <ProjectGrid />
-        {/* <ArchitectIntroGroup /> */}
         <ValuesRow />
         <h2
           style={{
             fontFamily: "benton-modern-display-extra, serif",
-            fontSize: "2.5rem",
+            fontSize: "2rem",
             fontWeight: 700,
             fontStyle: "normal",
             textAlign: "center",
-            padding: "2rem 0",
+            padding: "1.5rem 0",
             marginTop: "0rem",
           }}
         >
