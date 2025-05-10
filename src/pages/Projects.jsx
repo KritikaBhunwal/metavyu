@@ -7,13 +7,13 @@ import FilterableProjects from '../components/FilterableProjects';
 
 export default function Home() {
   return (
-    <>
-      <main>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <main style={{ flex: '1' }}>
         <Navbar />
         <FilterableProjects />
         {/* <Gallery /> */}
-        <Footer />
       </main>
-    </>
+      <Footer />
+    </div>
   );
 }
