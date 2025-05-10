@@ -58,7 +58,7 @@ export default function FilterableProjects() {
       src: g5,
       title: "Urban Loft",
       description: "Stylish residential apartments.",
-      categories: ["Hospitality"],
+      categories: ["Residential"],
       link: "/projects/urban-loft",
     },
     {
@@ -90,7 +90,7 @@ export default function FilterableProjects() {
       src: g9,
       title: "Boutique Hotel",
       description: "Charming boutique hospitality.",
-      categories: ["Commercial"],
+      categories: ["Hospitality"],
       link: "/projects/boutique-hotel",
     },
   ];
@@ -118,17 +118,12 @@ export default function FilterableProjects() {
         {filtered.map((p) => (
           <div className="project-item" key={p.id}>
             <div className="image-wrapper">
-              <div className="category-tags">
-                {p.categories.map((c, i) => (
-                  <button
-                    key={i}
-                    className="project-pill"
-                    onClick={() => setSelected(c)}
-                  >
-                    {c}
-                  </button>
-                ))}
-              </div>
+              <button
+                className="category-pill"
+                onClick={() => setSelected(p.categories[0])}
+              >
+                {p.categories[0]}
+              </button>
               <a href={p.link}>
                 <img src={p.src} alt={p.title} />
               </a>
@@ -141,5 +136,5 @@ export default function FilterableProjects() {
         ))}
       </div>
     </div>
-  );
+);
 }
