@@ -2,20 +2,18 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import ArchitectIntroGrid from '../components/ArchitectIntroGrid';
+import ServiceIntroGrid from '../components/ServiceIntroGrid';
 import ValuesRow from '../components/ValuesRow';
 
 export default function Services() {
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
-      <main>
-        <h1>Services</h1>
-        <p>Placeholder for your services description.</p>
-        <ArchitectIntroGrid />
-        <ValuesRow />
-      </main>
+      <div style={{ flex: 1 }}>
+                <ServiceIntroGrid />
+                <ValuesRow />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }

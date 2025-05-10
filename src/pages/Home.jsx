@@ -51,7 +51,7 @@ export default function Home() {
             fontStyle: "normal",
             textAlign: "center",
             padding: "2rem 0",
-            marginTop: "2rem",
+            marginTop: "0rem",
           }}
         >
           OUR WORK
