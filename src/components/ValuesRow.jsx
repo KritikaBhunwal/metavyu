@@ -32,9 +32,9 @@ export default function ValuesRow() {
   return (
     <div className='values-container'>
       <h2 style={{ 
-        fontFamily: 'benton-modern-display-extra, serif', 
+        fontFamily: 'amandine, serif', 
         fontSize: '2.5rem',
-        fontWeight: 700, 
+        fontWeight: 400, 
         fontStyle: 'normal', 
         textAlign: 'center',
         padding: '2rem 0',

@@ -15,13 +15,13 @@ export default function Home() {
         <ImageBanner src={gallery8} alt="Banner backdrop" />
                 <h2
           style={{
-            fontFamily: "benton-modern-display-extra, serif",
+            fontFamily: "amandine, serif",
             fontSize: "2.5rem",
-            fontWeight: 700,
+            fontWeight: 400,
             fontStyle: "normal",
             textAlign: "center",
             marginTop: "2rem",
-            marginBottom: "-5rem",
+            marginBottom: "-4rem",
           }}
         >
           OUR PROJECTS

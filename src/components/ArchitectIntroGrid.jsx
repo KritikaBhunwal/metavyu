@@ -100,9 +100,9 @@ export default function ArchitectIntroGrid() {
   return (
     <>
       <h2 style={{ 
-        fontFamily: 'benton-modern-display-extra, serif', 
+        fontFamily: 'amandine, sans-serif', 
         fontSize: '2.5rem',
-        fontWeight: 700, 
+        fontWeight: 400, 
         fontStyle: 'normal', 
         textAlign: 'center',
         padding: '2rem 0',

@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(to bottom, #0007 30%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   z-index: 1000;
 }
 
@@ -26,7 +26,7 @@
 .navbar__links span {
   color: #fff;
   padding: 0.4rem 1.2rem;
-  border-radius: 2rem;
+  /* border-radius: 2rem; */
   transition: background 0.3s ease;
 }
 .navbar__links a:hover,

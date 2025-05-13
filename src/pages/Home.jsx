@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import React from "react";
 import Navbar from "../components/Navbar";
 import CarouselParallax from "../components/CarouselParallax";
@@ -12,6 +11,10 @@ import ValuesRow from "../components/ValuesRow";
 import ProjectGrid from "../components/ProjectGrid";
 import TypewriterQuote from "../components/TypewriterQuote";
 import BusinessIntro from "../components/BusinessIntro";
+import BrandStory from "../components/BrandStory";
+import BrandStoryImage from "../assets/BrandStory.jpg";
+import BrandStoryImage2 from "../assets/BrandStory2.jpg";
+import "./Home.css";
 
 export default function Home() {
   return (
@@ -19,21 +22,25 @@ export default function Home() {
       <main>
         <Navbar />
         <CarouselParallax />
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "#000",
-            padding: "1rem",
-          }}
-        >
-          <div style={{ width: "100%", marginBottom: "1rem" }}>
+
+        <div className="hero-section">
+          <div className="hero-text">
             <TypewriterQuote />
           </div>
-          <div style={{ width: "100%" }}>
-            <BusinessIntro />
+          <div className="hero-image">
+            <a href="/brand-story">
+              <BrandStory src={BrandStoryImage} alt="Banner backdrop" />
+            </a>
+          </div>
+        </div>
+        <div className="hero-section">
+          <div className="hero-image">
+            <a href="/brand-story">
+              <BrandStory src={BrandStoryImage2} alt="Banner backdrop" />
+            </a>
+          </div>
+          <div className="hero-text">
+            <TypewriterQuote />
           </div>
         </div>
 
@@ -41,12 +48,12 @@ export default function Home() {
         <ValuesRow />
         <h2
           style={{
-            fontFamily: "benton-modern-display-extra, serif",
-            fontSize: "2rem",
-            fontWeight: 700,
+            fontFamily: "amandine, serif",
+            fontSize: "2.5rem",
+            fontWeight: 400,
             fontStyle: "normal",
             textAlign: "center",
-            padding: "1.5rem 0",
+            padding: "4rem 0",
             marginTop: "0rem",
           }}
         >

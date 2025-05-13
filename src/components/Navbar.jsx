@@ -32,10 +32,10 @@ export default function Navbar() {
       </button>
 
       <ul className={`navbar__links ${isOpen ? 'active' : ''}`}>
-        <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-        <li><Link to="/services" onClick={() => setIsOpen(false)}>Services</Link></li>
-        <li><Link to="/projects" onClick={() => setIsOpen(false)}>Projects</Link></li>
-        <li><Link to="/connect" onClick={() => setIsOpen(false)}>Connect</Link></li>
+        <li><Link to="/" onClick={() => setIsOpen(false)}>HOME</Link></li>
+        <li><Link to="/services" onClick={() => setIsOpen(false)}>SERVICES</Link></li>
+        <li><Link to="/projects" onClick={() => setIsOpen(false)}>PROJECTS</Link></li>
+        <li><Link to="/connect" onClick={() => setIsOpen(false)}>CONNECT</Link></li>
       </ul>
     </nav>
 );

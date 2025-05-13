@@ -12,9 +12,9 @@
 /* responsive font-size and spacing */
 .marquee__item {
   display: inline-block;
-  font-family: benton-modern-display-extra, serif;
+  font-family: amandine, serif;
   letter-spacing: 0.02em;
-  font-weight: 800;
+  font-weight: 400;
   /* margin-top: 1.2rem; */
 
   /* fluid font-size: min 3rem, ideal 10vw, max 7rem */
