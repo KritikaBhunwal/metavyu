@@ -18,10 +18,10 @@
   /* margin-top: 1.2rem; */
 
   /* fluid font-size: min 3rem, ideal 10vw, max 7rem */
-  font-size: clamp(2rem, 10vw, 3rem);
+  font-size: clamp(1rem, 10vw, 3rem);
 
   /* fluid gap: min 1rem, ideal 2vw, max 2rem */
-  margin-right: clamp(2rem, 2vw, 4rem);
+  margin-right: clamp(1rem, 2vw, 4rem);
 
   color: #000;
   transition: color 0.3s ease;
@@ -41,7 +41,7 @@
 @media (max-width: 600px) {
   .marquee__item {
     /* cap font-size a bit smaller */
-    font-size: clamp(3rem, 12vw, 6rem);
+    font-size: clamp(1rem, 12vw, 2rem);
     margin-right: 1rem;
     margin-top: 2rem;
   }
@@ -49,7 +49,7 @@
 
 @media (max-width: 400px) {
   .marquee__item {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     margin-top: 1rem;
     margin-right: 0.75rem;
   }

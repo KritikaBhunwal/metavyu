@@ -3,7 +3,9 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ImageBanner from '../components/ImageBanner';
+import Brandstory from '../components/Brandstory'; 
 import gallery7 from '../assets/gallery7.jpeg';
+
 
 export default function Services() {
   return (
@@ -12,6 +14,7 @@ export default function Services() {
               <ImageBanner src={gallery7} alt="Banner backdrop" />
       <div style={{ flex: 1 }}>
       </div>
+      <Brandstory />
       <Footer />
     </div>
   );

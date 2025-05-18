@@ -55,20 +55,39 @@
 }
 
 .slide-title {
-  font-family: "avenir-next-lt-pro", sans-serif;
-  font-weight: 900;
-  font-size: 3rem;
-  font-weight: bold;
+  font-family: "amandine", sans-serif;
+  font-weight: 400;
+  font-size: 4rem;
   line-height: 4.2rem;
   margin-bottom: 0.5rem;
 }
-
 
 .slide-subtitle {
   font-family: "avenir-next-lt-pro", sans-serif;
   font-weight: 400;
   font-size: 1.4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .slide-title {
+    font-size: 3rem;
+    line-height: 3.2rem;
+  }
+  .slide-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .slide-title {
+    font-size: 2.5rem;
+    line-height: 2.7rem;
+  }
+  .slide-subtitle {
+    font-size: 1rem;
+  }
 }
 
 /* CTA button */

@@ -40,14 +40,18 @@
   }
 
   @media (max-width: 500px) {
-    .projects-scroller {
+    /* .projects-scroller {
         flex-direction: column;
         align-items: center;
-    }
+    } */
   
     .project-card {
-        width: 90%;
-        max-width: 500px; /* max width for larger screens */
+        width: 60%;
+        max-width: 250px; /* max width for larger screens */
+    }
+
+    .project-card img {
+        height: 250px; /* adjust height for smaller screens */
     }
   }
   /* Add a scrollbar for the scroller */

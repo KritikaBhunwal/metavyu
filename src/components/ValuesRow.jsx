@@ -39,7 +39,7 @@ export default function ValuesRow() {
         textAlign: 'center',
         padding: '2rem 0',
         marginTop: '2rem',  
-        marginBottom: '-5rem',
+        marginBottom: 'clamp(-2rem, -5vw, -1rem)',
       }}>
         OUR VALUES
       </h2>

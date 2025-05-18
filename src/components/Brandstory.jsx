@@ -3,13 +3,19 @@ import React from 'react';
 
 export default function ImageBanner({ src, alt = '' }) {
 const containerStyle = {
-    position: 'relative',
-    width: '100%',
-    height: '60vh', // 50% of the viewport height
-    backgroundImage: `url(${src})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+  position: 'relative',
+  width: '100%',
+  height: '20vh',
+  backgroundImage: `url(${src})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
 };
+
+if (typeof window !== 'undefined' && window.matchMedia) {
+  if (window.matchMedia('(min-width: 600px)').matches) {
+    containerStyle.height = '60vh';
+  }
+}
 
   // Removed overlayStyle as per the request
 
