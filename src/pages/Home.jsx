@@ -8,10 +8,13 @@ import ContactForm from "../components/ContactForm";
 import ValuesRow from "../components/ValuesRow";
 import ProjectGrid from "../components/ProjectGrid";
 import TypewriterQuote from "../components/TypewriterQuote";
+import BrandStorySection from "../components/BrandStorySection";
+import MetavyuDesign from "../components/MetavyuDesign";
 import BrandStory from "../components/BrandStory";
 import BrandStoryImage from "../assets/BrandStory.jpg";
 import BrandStoryImage2 from "../assets/BrandStory2.jpg";
 import "./Home.css";
+import { Meta } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -20,7 +23,7 @@ export default function Home() {
         <Navbar />
         <CarouselParallax />
 
-        <div className="hero-section">
+        {/* <div className="hero-section">
           <div className="hero-text">
             <TypewriterQuote />
           </div>
@@ -39,8 +42,11 @@ export default function Home() {
           <div className="hero-text">
             <TypewriterQuote />
           </div>
-        </div>
+        </div> */}
 
+        <TypewriterQuote />
+        <BrandStorySection />
+        <MetavyuDesign />
         <ProjectGrid />
         <ValuesRow />
         <h2

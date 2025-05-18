@@ -9,9 +9,9 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__wrapper">
         <div className="footer__logo-container">
-          <img src={logo} alt="MetaVyu logo" className="footer__logo" />
+          <img src={logo} alt="Metavyu logo" className="footer__logo" />
           <div className="footer__logo-text">
-            <p className="footer__tagline">MetaVyu Designs</p>
+            <p className="footer__tagline">Metavyu Designs</p>
             <p className="footer__copy">&copy; {year} All rights reserved.</p>
           </div>
         </div>

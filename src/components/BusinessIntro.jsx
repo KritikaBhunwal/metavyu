@@ -11,7 +11,7 @@ export default function BusinessIntro() {
         <h2>METAVYU DESIGNS</h2>
         <h3>Know Us Better</h3>
         <p>
-          MetaVyu Designs is a forward-thinking Architectural studio specializing in sustainable architecture,
+          Metavyu Designs is a forward-thinking Architectural studio specializing in sustainable architecture,
           innovative construction solutions, and collaborative design consulting bringing visionary projects to life.
         </p>
 

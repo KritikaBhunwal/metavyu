@@ -6,7 +6,7 @@ export default function IntroSection() {
     <div className="intro-section">
       <h2>Our Architectural Services</h2>
       <p>
-        At MetaVyu, we deliver end-to-end architectural solutions—from master
+        At Metavyu, we deliver end-to-end architectural solutions—from master
         planning and sustainable design to bespoke interiors and urban
         revitalization. 
       </p>
