@@ -98,13 +98,14 @@
   color: #000;
   /* border-radius: 2rem; */
   text-decoration: none;
-  transition: background 0.3s, color 0.3s;
+  transition: transform 0.2s ease;
   z-index: 4;
   pointer-events: auto;           /* <- make the CTA clickable */
 }
 .slide-cta:hover {
   background: #fff;
   color: #333;
+  transform: scale(1.05);
 }
 
 /* wipe + zoom keyframes */
