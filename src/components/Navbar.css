@@ -1,6 +1,7 @@
-/* src/components/Navbar.css */
+/* Navbar container */
 .navbar {
   position: fixed;
+  top: 0;
   width: 100%;
   display: flex;
   align-items: center;
@@ -17,25 +18,34 @@
   z-index: 1100;
 }
 
-/* Desktop links */
+/* Nav links - desktop */
 .navbar__links {
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
-.navbar__links a,
-.navbar__links span {
+
+.navbar__links a {
   color: #fff;
   padding: 0.4rem 1.2rem;
-  /* border-radius: 2rem; */
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
-.navbar__links a:hover,
-.navbar__links span:hover {
+
+.navbar__links a:hover {
   background: linear-gradient(45deg, #ffe177, #cd9848);
   color: #000;
 }
 
-/* Hamburger toggle (hidden on desktop) */
+/* Active link gradient */
+.navbar__links a.active {
+  background: none;
+  font-weight: 600;
+  background: linear-gradient(45deg, #ffe177, #cd9848);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hamburger toggle - mobile only */
 .navbar__toggle {
   display: none;
   background: none;
@@ -43,16 +53,15 @@
   color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
-  z-index: 1100; /* above the overlay */
+  z-index: 1100;
 }
 
-/* MOBILE LAYOUT */
+/* Mobile menu */
 @media (max-width: 768px) {
   .navbar__toggle {
     display: block;
   }
 
-  /* Fullscreen overlay menu */
   .navbar__links {
     position: fixed;
     top: 0;
@@ -61,41 +70,28 @@
     height: 100vh;
     background: #000;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     display: none;
     margin: 0;
     padding: 0;
     z-index: 1050;
   }
+
   .navbar__links.active {
     display: flex;
   }
 
-  /* Menu items */
   .navbar__links li {
     list-style: none;
     width: 100%;
     text-align: center;
     margin: 0.5rem 0;
   }
-  .navbar__links a,
-  .navbar__links span {
+
+  .navbar__links a {
     display: inline-block;
-    width: auto;
     padding: 1rem 2rem;
     font-size: 1.25rem;
-  }
-
-  /* Submenu always visible in mobile */
-  .has-submenu .submenu {
-    position: static;
-    display: block;
-    background: #111;
-    width: 100%;
-    margin: 0;
-  }
-  .has-submenu .submenu li {
-    padding: 0.75rem 2rem;
   }
 }

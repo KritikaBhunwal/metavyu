@@ -11,39 +11,37 @@ import slide6 from '../assets/slide6.jpg';
 
 const SLIDES = [
   { src: slide1, link: 'https://www.instagram.com/metavyu_designs/', title: 'Innovative Architecture', subtitle: 'Blending form and function seamlessly' },
-  { src: slide2, link: 'https://www.instagram.com/metavyu_designs/', title: 'Urban Design Concepts',   subtitle: 'Redefining city landscapes for tomorrow' },
+  { src: slide2, link: 'https://www.instagram.com/metavyu_designs/', title: 'Urban Design Concepts', subtitle: 'Redefining city landscapes for tomorrow' },
   { src: slide3, link: 'https://www.instagram.com/metavyu_designs/', title: 'Sustainable Structures', subtitle: 'Eco-friendly materials and designs' },
-  { src: slide4, link: 'https://www.instagram.com/metavyu_designs/', title: 'Creative Interiors',    subtitle: 'Spaces that tell your story' },
-  { src: slide5, link: 'https://www.instagram.com/metavyu_designs/', title: 'Modern Landmarks',      subtitle: 'Iconic designs shaping skylines' },
-  { src: slide6, link: 'https://www.instagram.com/metavyu_designs/', title: 'Digital Architecture',   subtitle: 'Virtual spaces and interactive designs' },
+  { src: slide4, link: 'https://www.instagram.com/metavyu_designs/', title: 'Creative Interiors', subtitle: 'Spaces that tell your story' },
+  { src: slide5, link: 'https://www.instagram.com/metavyu_designs/', title: 'Modern Landmarks', subtitle: 'Iconic designs shaping skylines' },
+  { src: slide6, link: 'https://www.instagram.com/metavyu_designs/', title: 'Digital Architecture', subtitle: 'Virtual spaces and interactive designs' },
 ];
 
-const AUTO_DELAY = 4000;  // 4s auto-advance
-const ANIM_DURATION = 800; //ms, match CSS 0.8s
+const AUTO_DELAY = 4000;
+const ANIM_DURATION = 800;
 
 export default function CarouselParallax() {
   const [current, setCurrent] = useState(0);
   const [nextIdx, setNextIdx] = useState(null);
   const [dir, setDir] = useState('next');
 
-  // parallax on scroll
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.pageYOffset * 0.3;
-      document
-        .querySelectorAll('.parallax-wrapper')
-        .forEach(w => (w.style.transform = `translateY(${y}px)`));
+    const handleScroll = () => {
+      const yOffset = window.pageYOffset * 0.3;
+      document.querySelectorAll('.parallax-wrapper').forEach(el => {
+        el.style.transform = `translateY(${yOffset}px)`;
+      });
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // auto-advance
   useEffect(() => {
-    const id = setInterval(() => {
+    const interval = setInterval(() => {
       if (nextIdx === null) goNext();
     }, AUTO_DELAY);
-    return () => clearInterval(id);
+    return () => clearInterval(interval);
   }, [current, nextIdx]);
 
   const slideTo = (idx, direction) => {
@@ -60,16 +58,15 @@ export default function CarouselParallax() {
   const goNext = () => slideTo((current + 1) % SLIDES.length, 'next');
   const goPrev = () => slideTo((current - 1 + SLIDES.length) % SLIDES.length, 'prev');
 
-  // indicator click: direction based on position
-  const onIndicatorClick = i => {
+  const onIndicatorClick = (i) => {
     if (i === current || nextIdx !== null) return;
-    const direction = i > current ? 'next' : 'prev';
-    slideTo(i, direction);
+    slideTo(i, i > current ? 'next' : 'prev');
   };
 
   const bottom = nextIdx !== null ? current : null;
-  const top    = nextIdx !== null ? nextIdx  : current;
+  const top = nextIdx !== null ? nextIdx : current;
   const slideClass = nextIdx !== null ? `wipe-${dir}` : '';
+  const { src, link, title, subtitle } = SLIDES[top];
 
   return (
     <div className="carousel-container">
@@ -77,29 +74,30 @@ export default function CarouselParallax() {
         {bottom !== null && (
           <div className="parallax-wrapper">
             <a href={SLIDES[bottom].link} target="_blank" rel="noopener noreferrer">
-              <img src={SLIDES[bottom].src} alt="" className="carousel-image previous" />
+              <img src={SLIDES[bottom].src} alt={SLIDES[bottom].title} className="carousel-image previous" />
             </a>
           </div>
         )}
+
         <div className="parallax-wrapper">
-          <a href={SLIDES[top].link} target="_blank" rel="noopener noreferrer">
-            <img src={SLIDES[top].src} alt="" className="carousel-image current" />
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <img src={src} alt={title} className="carousel-image current" />
           </a>
           <div className="dark-overlay" />
           <div className="slide-overlay">
-            <h2 className="slide-title">{SLIDES[top].title}</h2>
-            <p className="slide-subtitle">{SLIDES[top].subtitle}</p>
-            <a href={SLIDES[top].link} className="slide-cta" target="_blank" rel="noopener noreferrer">
+            <h2 className="slide-title">{title}</h2>
+            <p className="slide-subtitle">{subtitle}</p>
+            <a href={link} className="slide-cta" target="_blank" rel="noopener noreferrer">
               Explore
             </a>
           </div>
         </div>
       </div>
 
-      <button className="carousel-button prev" onClick={goPrev} aria-label="Previous">
+      <button className="carousel-button prev" onClick={goPrev} aria-label="Previous Slide">
         <FaChevronLeft />
       </button>
-      <button className="carousel-button next" onClick={goNext} aria-label="Next">
+      <button className="carousel-button next" onClick={goNext} aria-label="Next Slide">
         <FaChevronRight />
       </button>
 
@@ -114,4 +112,4 @@ export default function CarouselParallax() {
       </div>
     </div>
   );
-}
+} 

@@ -1,5 +1,3 @@
-/* src/components/MetavyuDesign.css */
-
 .metavyu-section {
   position: relative;
   background-size: cover;
@@ -12,17 +10,14 @@
 
 .metavyu-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.4);
 }
 
 .metavyu-content {
+  font-family: 'Avenir Next', sans-serif;
   position: relative;
   max-width: 800px;
-  /* 3rem top/right/bottom, auto left → 3rem gap from right */
   margin: 3rem 3rem 3rem auto;
   text-align: right;
   z-index: 1;
@@ -38,16 +33,19 @@
 }
 
 .metavyu-hr {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   height: 1px;
   border: none;
+  margin-bottom: 2rem;
+  margin-left: auto;
   background: linear-gradient(90deg, #ffe177, #cd9848);
-  margin: 0 0 2rem auto;      /* flush right */
 }
 
 .metavyu-points {
+  font-family: 'Avenir Next', sans-serif;
   list-style: disc inside;
-  margin: 0 0 2rem;
+  margin-bottom: 2rem;
   padding: 0;
   font-size: clamp(1rem, 3vw, 1.2rem);
   font-weight: 600;
@@ -58,49 +56,50 @@
 }
 
 .metavyu-description {
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: 300;
   font-size: clamp(1rem, 2.5vw, 1.125rem);
   line-height: 1.6;
-  margin: 0 0 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .metavyu-button {
   font-family: 'Avenir Next', sans-serif;
   background: linear-gradient(45deg, #ffe177, #cd9848);
   border: none;
-  padding: 0.75rem 2rem;      /* same padding as desktop */
-  font-size: 1rem;            /* same size as desktop */
-  cursor: pointer;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
   color: #000;
+  cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 .metavyu-button:hover {
   transform: scale(1.05);
 }
 
-/* Responsive tweaks */
-@media (max-width: 600px) {
+/* Responsive adjustments */
+@media (max-width: 756px) {
   .metavyu-section {
     padding: 2rem 1rem;
   }
+
   .metavyu-overlay {
-  background: rgba(0, 0, 0, 0.6);
-}
+    background: rgba(0, 0, 0, 0.6);
+  }
 
   .metavyu-content {
-    margin: 3rem;    /* 3rem on all sides, content left-aligned */
+    margin: 3rem;
     text-align: left;
   }
 
   .metavyu-hr {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 0 1.5rem 0;
+    margin-left: 0;
+    margin-bottom: 1.5rem;
   }
 
   .metavyu-points,
   .metavyu-description {
     font-size: 1rem;
   }
-
-  /* no button width/padding overrides here—kept the same as desktop */
 }

@@ -9,9 +9,9 @@
   justify-content: center;
   align-items: center;
   background-color: #000;
-  text-align: left;
   padding: 4.8rem;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .typewriter {
@@ -19,9 +19,9 @@
   font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: 400;
   letter-spacing: 0.05em;
-  white-space: pre-wrap;
   color: #fff;
   margin: 0;
+  white-space: pre-wrap;
 }
 
 .author {
@@ -44,8 +44,3 @@
 @keyframes blink {
   50% { opacity: 0; }
 }
-
-@media (min-width: 600px) {
-  .typewriter-container {
-    text-align: center;
-  }
