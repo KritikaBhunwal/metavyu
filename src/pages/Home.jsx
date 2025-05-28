@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import CarouselParallax from "../components/CarouselParallax";
 import MarqueeServices from "../components/MarqueeServices";
@@ -10,40 +10,18 @@ import ProjectGrid from "../components/ProjectGrid";
 import TypewriterQuote from "../components/TypewriterQuote";
 import BrandStorySection from "../components/BrandStorySection";
 import MetavyuDesign from "../components/MetavyuDesign";
-import BrandStory from "../components/BrandStory";
-import BrandStoryImage from "../assets/BrandStory.jpg";
-import BrandStoryImage2 from "../assets/BrandStory2.jpg";
 import "./Home.css";
-import { Meta } from "react-router-dom";
 
 export default function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <main>
         <Navbar />
         <CarouselParallax />
-
-        {/* <div className="hero-section">
-          <div className="hero-text">
-            <TypewriterQuote />
-          </div>
-          <div className="hero-image">
-            <a href="/brand-story">
-              <BrandStory src={BrandStoryImage} alt="Banner backdrop" />
-            </a>
-          </div>
-        </div>
-        <div className="hero-section">
-          <div className="hero-image">
-            <a href="/brand-story">
-              <BrandStory src={BrandStoryImage2} alt="Banner backdrop" />
-            </a>
-          </div>
-          <div className="hero-text">
-            <TypewriterQuote />
-          </div>
-        </div> */}
-
         <TypewriterQuote />
         <BrandStorySection />
         <MetavyuDesign />

@@ -1,5 +1,4 @@
-// src/pages/Connect.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ArchitectIntroGrid from '../components/ArchitectIntroGrid';
@@ -9,13 +8,17 @@ import gallery2 from '../assets/gallery2.jpeg';
 import ImageBanner from '../components/ImageBanner';
 
 export default function Connect() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
       <ImageBanner src={gallery2} alt="Banner backdrop" />
       <div style={{ flex: 1 }}>
-                <ArchitectIntroGrid />
-                <ValuesRow />
+        <ArchitectIntroGrid />
+        <ValuesRow />
         <ContactForm />
       </div>
       <Footer />

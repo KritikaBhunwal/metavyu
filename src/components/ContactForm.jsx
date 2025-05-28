@@ -1,3 +1,4 @@
+// src/ContactForm.js
 import React, { useState } from 'react';
 import './ContactForm.css';
 
@@ -25,21 +26,38 @@ export default function ContactForm() {
     return errs;
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
+
     const errs = validate();
     if (Object.keys(errs).length) {
       setErrors(errs);
-    } else {
-      setErrors({});
-      setSubmitted(true);
-      // TODO: wire up your backend or email service here
+      return;
+    }
+    setErrors({});
+
+    try {
+      const res = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        setErrors({ submit: data.error || 'Failed to send message.' });
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      setErrors({ submit: 'Network error—please try again.' });
     }
   };
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
-       <h2 style={{ 
+      <h2 style={{ 
         fontFamily: 'amandine, serif', 
         fontSize: '2.5rem',
         fontWeight: 400, 
@@ -93,6 +111,12 @@ export default function ContactForm() {
             />
             {errors.message && <span className="error">{errors.message}</span>}
           </div>
+
+          {errors.submit && (
+            <p className="error" style={{ textAlign: 'center' }}>
+              {errors.submit}
+            </p>
+          )}
 
           <button type="submit">Send Message</button>
         </>

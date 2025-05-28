@@ -1,4 +1,3 @@
-// src/components/FilterableProjects.jsx
 import React, { useState } from "react";
 import "./FilterableProjects.css";
 import g1 from "../assets/gallery1.jpeg";
@@ -90,6 +89,7 @@ const allProjects = [
 
 export default function FilterableProjects() {
   const [selected, setSelected] = useState("All Projects");
+  const [modalImage, setModalImage] = useState(null);
 
   const filteredProjects =
     selected === "All Projects"
@@ -120,15 +120,25 @@ export default function FilterableProjects() {
               >
                 {p.categories[0]}
               </button>
-              <a href={p.link}>
-                <img src={p.src} alt={p.title} />
-              </a>
+              <img
+                src={p.src}
+                alt={p.title}
+                className="clickable-img"
+                onClick={() => setModalImage(p.src)}
+              />
             </div>
             <h3><a href={p.link}>{p.title}</a></h3>
             <p>{p.description}</p>
           </div>
         ))}
       </div>
+
+      {modalImage && (
+        <div className="modal-overlay" onClick={() => setModalImage(null)}>
+          <img src={modalImage} alt="Full View" className="modal-image" />
+          <span className="modal-close" onClick={() => setModalImage(null)}>×</span>
+        </div>
+      )}
     </div>
   );
 }
