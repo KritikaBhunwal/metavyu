@@ -79,6 +79,7 @@ const AnimatedStats = () => {
 
   return (
     <section className="animated-stats-section">
+      <h2 className="stats-heading">KEY STATISTICS</h2>
       <div className="stats-container">
         {stats.map((item, index) => (
           <div

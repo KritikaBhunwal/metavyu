@@ -62,7 +62,7 @@ const FAQ = () => {
 
   return (
     <section className="faq-section">
-      <h2 className="faq-heading">Frequently Asked Questions</h2>
+      <h2 className="faq-heading">FAQs</h2>
       <div className="faq-container">
         {faqData.map((item, index) => (
           <FAQItem
