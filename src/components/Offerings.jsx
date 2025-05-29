@@ -56,6 +56,7 @@ const Offerings = () => {
 
   return (
     <div className="offerings-wrapper">
+      <h2 className="offerings-heading">OUR SERVICES</h2>
       {offerings.map((item, index) => (
         <div
           key={index}

@@ -22,7 +22,6 @@ export default function Services() {
         {/* You can add intro or text here if needed */}
       </div>
       <ProcessTimeline />
-
       <Offerings />
             <AnimatedStats />
 
