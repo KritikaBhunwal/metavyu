@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaWhatsapp } from 'react-icons/fa';
 import './Navbar.css';
 import logo from '../assets/MetaVyu.png';
 
@@ -9,7 +9,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
 
-  // Close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) setIsOpen(false);
@@ -53,6 +52,18 @@ export default function Navbar() {
             </Link>
           </li>
         ))}
+
+        {/* WhatsApp icon after Connect */}
+        <li className="navbar__whatsapp">
+          <a
+            href="https://wa.me/919999224848"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <FaWhatsapp size={28} />
+          </a>
+        </li>
       </ul>
     </nav>
   );

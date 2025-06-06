@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './TypewriterQuote.css';
 
-const MAIN_TEXT = '“Architecture is the silent storyteller of our sustainable future.” ';
+const MAIN_TEXT = '“We at Metavyu Designs offer complete architectural, interior, and construction services—from concept to completion.” ';
 const AUTHOR_TEXT = '– Vyusti Sehrawat';
 const FULL_QUOTE = MAIN_TEXT + AUTHOR_TEXT;
 

@@ -1,9 +1,37 @@
-// src/components/BrandStorySection.jsx
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './BrandStorySection.css';
 import bgImage from '../assets/brandstory4.png';
 
 export default function BrandStorySection() {
+  const contentRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Run only once
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current);
+    }
+
+    return () => {
+      if (contentRef.current) observer.unobserve(contentRef.current);
+    };
+  }, []);
+
+  const handleServicesClick = () => {
+    window.location.href = '/services';
+  };
+
   return (
     <section
       className="brandstory-section"
@@ -11,20 +39,26 @@ export default function BrandStorySection() {
       aria-labelledby="brandstory-heading"
     >
       <div className="brandstory-overlay" />
-      <div className="brandstory-content">
+      <div
+        ref={contentRef}
+        className={`brandstory-content ${isVisible ? 'visible' : ''}`}
+      >
         <h2 id="brandstory-heading" className="brandstory-title">Brand Story</h2>
         <hr className="brandstory-hr" />
         <ul className="brandstory-points">
-          <li>Our journey began with a simple idea of innovation.</li>
-          <li>We believe in merging design with sustainability.</li>
-          <li>Every project tells its own unique story.</li>
+          <li>Beautiful Architecture Across the Country</li>
+          <li>Timeless Interior Design That Lasts a Lifetime</li>
+          <li>End-to-End Turnkey Construction Services</li>
         </ul>
         <p className="brandstory-description">
-          Since our founding, we’ve pushed the boundaries of architecture and design to create spaces
-          that are both beautiful and responsible. Through collaboration, creativity, and steadfast
-          commitment to the planet, our work speaks for itself—shaping the environments of tomorrow.
+          Designing and Building Inspired Spaces. Metavyu Designs is an architecture and interior design firm that also provides construction and consultation services. In essence, Metavyu Designs is a one-stop solution for end-to-end design and build needs - from initial concept through construction.
         </p>
-        <button className="brandstory-button">Explore</button>
+        <button
+          className="brandstory-button"
+          onClick={handleServicesClick}
+        >
+          Our Services
+        </button>
       </div>
     </section>
   );

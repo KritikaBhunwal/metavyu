@@ -1,7 +1,7 @@
-import React from 'react';
-import './Footer.css';
-import logo from '../assets/MetaVyu.png';
-import { FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import React from "react";
+import "./Footer.css";
+import logo from "../assets/MetaVyu.png";
+import { FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -34,7 +34,7 @@ export default function Footer() {
             <FaInstagram />
           </a>
           <a
-            href="https://wa.me"
+            href="https://wa.me/919999224848"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"

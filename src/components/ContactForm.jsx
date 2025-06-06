@@ -56,71 +56,85 @@ export default function ContactForm() {
   };
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate>
-      <h2 style={{ 
-        fontFamily: 'amandine, serif', 
-        fontSize: '2.5rem',
-        fontWeight: 400, 
-        fontStyle: 'normal', 
-        textAlign: 'center',
-        padding: '2rem 0',
-      }}>
-        CONTACT US
-      </h2>
+    <>
+      <form className="contact-form" onSubmit={handleSubmit} noValidate>
+        <h2 style={{ 
+          fontFamily: 'amandine, serif', 
+          fontSize: '2.5rem',
+          fontWeight: 400, 
+          fontStyle: 'normal', 
+          textAlign: 'center',
+          padding: '2rem 0',
+        }}>
+          CONTACT US
+        </h2>
 
-      {submitted ? (
-        <p className="success-message">
-          Thanks for reaching out! We’ll get back to you shortly.
-        </p>
-      ) : (
-        <>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Your name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-            {errors.name && <span className="error">{errors.name}</span>}
-          </div>
+        {submitted ? (
+          <p className="success-message">
+            Thanks for reaching out! We’ll get back to you shortly.
+          </p>
+        ) : (
+          <>
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your name"
+                value={formData.name}
+                onChange={handleChange}
+              />
+              {errors.name && <span className="error">{errors.name}</span>}
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            {errors.email && <span className="error">{errors.email}</span>}
-          </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.email && <span className="error">{errors.email}</span>}
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="How can we help?"
-              value={formData.message}
-              onChange={handleChange}
-            />
-            {errors.message && <span className="error">{errors.message}</span>}
-          </div>
+            <div className="form-group">
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="How can we help?"
+                value={formData.message}
+                onChange={handleChange}
+              />
+              {errors.message && <span className="error">{errors.message}</span>}
+            </div>
 
-          {errors.submit && (
-            <p className="error" style={{ textAlign: 'center' }}>
-              {errors.submit}
-            </p>
-          )}
+            {errors.submit && (
+              <p className="error" style={{ textAlign: 'center' }}>
+                {errors.submit}
+              </p>
+            )}
 
-          <button type="submit">Send Message</button>
-        </>
-      )}
-    </form>
+            <button type="submit">Send Message</button>
+          </>
+        )}
+      </form>
+      <div style={{ width: '100%'}}>
+        <iframe
+          title="METAVYU DESIGNS Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.7086910543753!2d77.2111101!3d28.548474499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce32c9210c257%3A0x633015c1c3d81fda!2sMETAVYU%20DESIGNS!5e0!3m2!1sen!2sin!4v1749214370506!5m2!1sen!2sin"
+          width="100%"
+          height="450"
+          style={{ border: 0, display: 'block' }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </>
   );
 }
